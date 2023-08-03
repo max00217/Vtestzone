@@ -6,4 +6,3 @@ fn main() {
         print('$v ')
     }
 }
-z
