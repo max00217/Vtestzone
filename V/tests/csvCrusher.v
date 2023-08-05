@@ -3,7 +3,7 @@ import encoding.csv
 
 fn main() {
     file_name := './v.csv' // 파일 경로
-    println("Jin's csvCrusher 1.0 Writen by V.\n")
+    println("Jin's csvCrusher 1.0 Writen by V.\nInspired by Eunsuk Kang's Python code\n\n")
 	println("읽어들이려는 csv 파일명을 v.csv로 변경해주세요.\n")
 	for true{
 		mut row_number := os.input("계산을 원하는 행 번호(정지하려면 0을 입력): ").int()
