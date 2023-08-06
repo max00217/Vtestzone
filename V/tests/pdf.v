@@ -35,7 +35,7 @@ fn main() {
 	}
 
 	// write the string
-	page.push_content(page.draw_base_text("Lel", 10, 10, fnt_params))
+	page.push_content(page.draw_base_text("lol", 10, 10, fnt_params))
 
 	// render the PDF
 	txt := doc.render()!
