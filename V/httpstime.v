@@ -1,7 +1,7 @@
 import time
 import net.http
 
-resp := http.get("https://vlang.io/utc_now") or {
+resp := http.get("https://wakatime.com/") or {
     println("failed to fetch data from the server")
     return
 }
