@@ -1,41 +1,47 @@
 module main
 
 import vweb
-import databases
 import os
-
-const (
-	port = 8082
-)
 
 struct App {
 	vweb.Context
 }
-
-pub fn (app App) before_request() {
-	println('[web] before_request: ${app.req.method} ${app.req.url}')
+//
+struct Object {
+	title       string
+	description string
 }
 
 fn main() {
-	mut db := databases.create_db_connection() or { panic(err) }
-
-	sql db {
-		create table User
-		create table Product
-	} or { panic('error on create table: ${err}') }
-
-	db.close() or { panic(err) }
-
-	mut app := &App{}
-	app.serve_static('/favicon.ico', 'src/assets/favicon.ico')
-	// makes all static files available.
-	app.mount_static_folder_at(os.resource_abs_path('.'), '/')
-
-	vweb.run(app, port)
+	vweb.run_at(new_app(), vweb.RunParams{
+		port: 8081
+	}) or { panic(err) }
 }
 
-pub fn (mut app App) index() vweb.Result {
-	title := 'vweb app'
+fn new_app() &App {
+	mut app := &App{}
+	// makes all static files available.
+	app.mount_static_folder_at(os.resource_abs_path('.'), '/')
+	return app
+}
 
+['/']
+pub fn (mut app App) page_home() vweb.Result {
+	// all this constants can be accessed by src/templates/page/home.html file.
+	page_title := 'V is the new V'
+	v_url := 'https://github.com/vlang/v'
+
+	list_of_object := [
+		Object{
+			title: 'One good title'
+			description: 'this is the first'
+		},
+		Object{
+			title: 'Other good title'
+			description: 'more one'
+		},
+	]
+	// $vweb.html() in `<folder>_<name> vweb.Result ()` like this
+	// render the `<name>.html` in folder `./templates/<folder>`
 	return $vweb.html()
 }
