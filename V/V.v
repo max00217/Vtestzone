@@ -1,10 +1,6 @@
-struct Person {
-	awake bool
-}
+import clipboard
 
 fn main() {
-	mut me := &Person{awake: true}
-	for me.awake {
-		me.code()
-	}
+	mut c := clipboard.new()
+	println(c.get_text())
 }
