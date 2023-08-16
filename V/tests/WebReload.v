@@ -3,18 +3,6 @@ import os
 import time
 import term
 
-fn print_loading_animation() {
-    mut loading_animation := ['|', '/', '-', '\\']
-    mut index := 0
-
-    for {
-        if index >= loading_animation.len { index = 0 }
-        print("\r${loading_animation[index]}     Please Wait...")
-        index++
-        time.sleep(130 * time.millisecond)
-    }
-}
-
 fn main() {
     println("Multi-room Reserv Web Reloader v1.0\nBuilt with V Programming Language\n\n")
     username := "max00217"
@@ -25,14 +13,14 @@ fn main() {
     mut header := http.new_header()
     header.add(.authorization, "Token $api_token")
 
+    config := http.FetchConfig{
+        method: .post,
+        url: url,
+        header: header  
+    }
+
     if os.input("Press Return(Enter) to Start Reloading...") == "" {
-        go print_loading_animation()
-        
-        config := http.FetchConfig{
-            method: .post,
-            url: url,
-            header: header
-        }
+        go loading_anim()
 
         response := http.fetch(config) !
 
@@ -43,7 +31,19 @@ fn main() {
             println("Got Unexpected Status code: ${response.status_code}\n$response.body")
         }
 
-        println("\n\n\nPress any Key to Exit...")
+        println("\n\n\nEnter any Key to Exit...")
         os.input("")
+    }
+}
+
+fn loading_anim() {
+    mut loading_animation := ['|', '/', '-', '\\']
+    mut index := 0
+
+    for true {
+        if index >= loading_animation.len { index = 0 }
+        print("\r${loading_animation[index]}")
+        index++
+        time.sleep(130 * time.millisecond)
     }
 }
