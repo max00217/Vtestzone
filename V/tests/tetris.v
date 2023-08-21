@@ -15,8 +15,8 @@ const (
 	field_height    = 20 // # of blocks
 	field_width     = 10
 	tetro_size      = 4
-	win_width       = block_size * field_width
-	win_height      = block_size * field_height
+	win_width       = block_size * field_width 
+	win_height      = block_size * field_height 
 	timer_period    = 250 // ms
 	text_size       = 24
 	limit_thickness = 3
@@ -476,20 +476,20 @@ fn (mut game Game) key_down(key gg.KeyCode) {
 	}
 	// keys while game is running
 	match key {
-		.up {
+		.w {
 			// Rotate the tetro
 			game.rotate_tetro()
 		}
-		.left {
+		.a {
 			game.move_right(-1)
 		}
-		.right {
+		.d {
 			game.move_right(1)
 		}
-		.down {
+		.s {
 			game.move_tetro() // drop faster when the player presses <down>
 		}
-		.d {
+		.p {
 			for game.move_tetro() {
 			}
 		}
