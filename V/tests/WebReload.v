@@ -37,12 +37,12 @@ fn main() {
 }
 
 fn loading_anim() {
-    mut loading_animation := ['|', '/', '-', '\\']
+    mut loading_animation := ["|", "/", "-", "\\"]
     mut index := 0
 
     for true {
         if index >= loading_animation.len { index = 0 }
-        print("\r${loading_animation[index]}")
+        print("\r${loading_animation[index]} ")
         index++
         time.sleep(130 * time.millisecond)
     }
