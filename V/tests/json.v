@@ -1,4 +1,5 @@
 import json
+import os
 
 struct User {
     name string
@@ -9,13 +10,14 @@ mut:
 }
 
 fn main() {
-    s := '[
-        {"name":"Frodo", "age":25, "gender": "male"}, 
-        {"name":"Bobby", "age":10, "gender": "male"},
-        {"name":"Sally", "age":12, "gender": "female"},
-        {"name":"Max", "age":17, "gender": "male"},
-        {"name":"Jane", "age":19, "gender": "female"}
-        ]'
+    s := os.fileno("V/tests/v.json")
+    // '[
+    //     {"name":"Frodo", "age":25, "gender": "male"}, 
+    //     {"name":"Bobby", "age":10, "gender": "male"},
+    //     {"name":"Sally", "age":12, "gender": "female"},
+    //     {"name":"Max", "age":17, "gender": "male"},
+    //     {"name":"Jane", "age":19, "gender": "female"}
+    //     ]'
 
     mut users := json.decode([]User, s) or {
         eprintln("Failed to parse json")
