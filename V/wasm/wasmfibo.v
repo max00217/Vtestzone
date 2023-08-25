@@ -1,6 +1,6 @@
 import wasm
 import os
-
+//WIP
 fn main() {
 	mut m := wasm.Module{}
 	mut fact := m.new_function('fact', [.i32_t], [.i32_t])
