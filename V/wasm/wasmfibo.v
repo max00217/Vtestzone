@@ -3,34 +3,34 @@ import os
 //WIP
 fn main() {
 	mut m := wasm.Module{}
-	mut fact := m.new_function('fact', [.i32_t], [.i32_t])
-	{
-		fact.local_get(0)
-		fact.eqz(.i32_t)
-		bif := fact.c_if([], [.i32_t])
-		{
-			fact.i32_const(1)
-		}
-		fact.c_else(bif)
-		{
-			{
-				fact.local_get(0)   
-			}
-			{
-				fact.local_get  (0)
-				fact.i32_const(1)
-				fact.sub(.i32_t)
-				fact.call('fact')
-			}
-			fact.mul(.i32_t)
-		}
-		fact.c_end(bif)
+	mut fibo := m.new_function('fibo', [.i32_t], [.i32_t]) {
+		fibo.i32_const(0)
+		fibo.i32_const(0)
+		fibo.i32_const(2)
 	}
-	m.commit(fact, true)
+	m.commit(fibo, true)
 	print(m.compile().bytestr())
     mod := m.compile() // []u8
 
 	// v run facttorial.v > a.wasm
 	// wasmer a.wasm -i fact 5
      os.write_file_array("vibonacci.wasm", mod)!
+}
+
+fn fibo(n i64) {
+	mut r := 0
+	mut n1 := 0
+	mut n2 := 1
+
+	if n <= 1 {
+		println(n)
+	} else {
+		for _ in 0..n {
+			r = n1 + n2
+			n1 = n2
+			n2 = r
+			println(r)
+		}
+		// println(r)
+	}
 }
