@@ -1,5 +1,6 @@
 import pdf
 import os
+import utf8
 
 fn main() {
 	mut doc := pdf.Pdf{}
@@ -35,11 +36,11 @@ fn main() {
 	}
 
 	// write the string
-	page.push_content(page.draw_base_text("lol", 10, 10, fnt_params))
+	page.push_content(page.draw_base_text("안녕하세요, 저는 트위치에서 방송을 하고 있는.", 10, 10, fnt_params))
 
 	// render the PDF
 	txt := doc.render()!
 
 	// write it to a file
-	os.write_file_array("V.pdf", txt)!
+	os.write_file_array("sisidf.pdf", txt)!
 }
