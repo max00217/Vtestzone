@@ -28,9 +28,7 @@ fn main() {
 	}
 	m.commit(fact, true)
 	print(m.compile().bytestr())
-    mod := m.compile() // []u8
+    mod := m.compile()
 
-	// v run facttorial.v > a.wasm
-	// wasmer a.wasm -i fact 5
      os.write_file_array("vactorial.wasm", mod)!
 }

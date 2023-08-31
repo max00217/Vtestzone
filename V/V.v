@@ -1,8 +1,8 @@
+import os
+import math
+
 fn main() {
-	for i in 1..18 {
-		println("${163 * i + i} ~ ")
-		if 163 * i + i - 1 > 2458 {
-			break
-		}
-	}
+	mut a := os.input("").int()
+	mut vact := math.factorial(a)
+	println("$a! = $vact")
 }
