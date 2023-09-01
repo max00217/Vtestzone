@@ -1,0 +1,9 @@
+ffmpeg
+chafa
+cacaview
+
+ffmpeg -i badapple.mp4 frame%04d.jpg
+
+ffmpeg -i input.jpg -f rawvideo -pix_fmt rgb24 - | cacaview -
+
+for i in *.jpg; do chafa $i; sleep 0.1; done
