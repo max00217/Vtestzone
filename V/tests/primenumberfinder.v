@@ -2,9 +2,12 @@ import math
 import os
 
 fn main() {
-	println("Prime Number FINDER v0.1")
+	println("Prime Number FINDER v0.2.1")
 	for true{
 		mut q := os.input("Number: ").int()
+		if typeof(q) != typeof(2) {
+			println("Please enter a valid integer value.")
+		}
 		print_primes(q)
 	}
 }
