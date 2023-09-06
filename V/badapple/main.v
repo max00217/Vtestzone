@@ -1,13 +1,13 @@
 import ascii_img
-import time
+// import time
 
 fn main() {
     for i in 1..6573 {
-        img := ascii_img.from_file("V/badapple/ba/frame${i}.jpg",
-            scale_x: 0.2,
-            scale_y: 0.12,
+        img := ascii_img.from_file("ba/frame${i}.jpg",
+            scale_x: 0.4,
+            scale_y: 0.15,
             grayscale: false,
-            channels: .rgba,
+            channels: .rgb,
             style: ascii_img.styles["default"]
         ) or { err.msg() }
 
