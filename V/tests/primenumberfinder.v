@@ -1,13 +1,14 @@
 import math
 import os
+import crayon
 
 fn main() {
-	println("Prime Number FINDER v0.3")
+	println(crayon.color("{green.bold.italic Prime Number FINDER v0.4}"))
 	for true{
-		mut q := os.input("Start Number: ").int()
-		mut w := os.input("End Number: ").int()
+		mut q := os.input(crayon.color("{dim Start Number: }")).int()
+		mut w := os.input(crayon.color("{dim End Number: }")).int()
 		if typeof(q) != typeof(2) || typeof(w) != typeof(1) {
-			println("Please enter a valid integer value.")
+			println(crayon.color("{red.bold.italic.reverse Please enter a valid integer value.}"))
 		}
 		print_primes(q, w)typeof(q) != typeof(2)
 	}
