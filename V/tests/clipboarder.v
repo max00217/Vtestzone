@@ -1,13 +1,14 @@
 import clipboard
+import crayon
 import os
 
 fn main() {
-	println("what's on your clipboard?\n")
+	println("what's on your clipboard? v0.3\n")
 	mut q := clipboard.new()
-	mut w := q.get_text()
+	mut w := crayon.new(q.get_text()).light_magenta().str()
 	for true{
 		if os.input("> Press Enter...") == ""{
-			println("\n==========\n\nThis is your clipboard: $w\n\n==========\n")
+			println("\n==========\n\nThis is your clipboard:\n\n $w\n\n==========\n")
 		}
 	}	
 }
