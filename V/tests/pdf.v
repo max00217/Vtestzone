@@ -1,6 +1,5 @@
 import pdf
 import os
-import utf8
 
 fn main() {
 	mut doc := pdf.Pdf{}
@@ -16,7 +15,7 @@ fn main() {
 
 	mut fnt_params := pdf.Text_params{
 		font_size: 22.0
-		font_name: "Helvetica"
+		font_name: "Ubuntu"
 		s_color: pdf.RGB{
 			r: 0
 			g: 0
