@@ -18,7 +18,7 @@ fn pow(base int, exponent int) int {
 }
 
 fn main() {
-    for i in 1..5000000 {
+    for i in 1..50000000 {
         if is_munchausen(i) {
             println(i)
         }
