@@ -14,7 +14,7 @@ fn main() {
 	]
 	println(arr)
 	for i in 1..arr.len - 1 {
-		for j in 0..arr.len - i -1 {
+		for j in 0..arr.len - i {
 			if arr[j] > arr[j+1] {
 				arr[j], arr[j+1] = arr[j+1], arr[j]
 				println("Sorting...:${arr}")
