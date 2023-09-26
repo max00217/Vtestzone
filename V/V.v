@@ -1,12 +1,29 @@
-fn main() {
-    mut result := recursion(10)
-    println('Result: $result')
-}
+import rand
+import math
+import os
 
-fn recursion(q int) int {
-    mut w := q * q
-    if w < 3000 {
-        return recursion(w)
+fn main() {
+    mut userpoint := 0
+    for _ in 0..5 {
+        mut index := rand.intn(99) or { return }
+
+        mut line := '['
+        for j in 0..100 {
+            if j == index {
+                line += '◉'
+            } else {
+                line += ' '
+            }
+        }
+        line += ']'
+        println(line)
+        userinput := os.input("Guess the Number: ")
+        if userinput == index {
+            userpoint += userpoint + 100
+        } else if math.abs(userinput - index) < 10 {
+            userpoint += userpoint + 90
+        }
+        println("${index}\n")
+        println("Your score")
     }
-    return w
 }
