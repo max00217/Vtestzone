@@ -24,4 +24,4 @@ fn main() {
 		}
 	}
 	println("\nSort Result: ${arr}")
-}	
+}
