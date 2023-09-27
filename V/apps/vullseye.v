@@ -4,7 +4,7 @@ import os
 import crayon
 
 fn main() {
-	println(crayon.color("{green.bold.italic Vull's Eye v0.2}\n"))
+	println(crayon.color("{green.bold.italic Vull's Eye v0.2.1}\n"))
     mut userpoint := 0
     for true {
         for _ in 0..5 {
@@ -49,7 +49,7 @@ fn main() {
             }
             println(crayon.color("{bold Your Score: ${userpoint}pts\n}"))
         }
-        mut continuesign := os.input(crayon.color("{red.italic Continue?(y/n): }"))
+        mut continuesign := os.input(crayon.color("{yellow.italic Continue?(y/n): }"))
         if continuesign == "y" || continuesign == "Y" {
             userpoint = 0
             continue
