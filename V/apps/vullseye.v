@@ -24,7 +24,6 @@ fn main() {
             if userinput == index {
                 userpoint = userpoint + 100
                 println(crayon.color("{red.bold.italic \n+ 100pts!}"))
-
             } else if math.abs(userinput - index) < 5 {
                 userpoint = userpoint + 95
                 println(crayon.color("{yellow.bold \n+ 95pts}"))
