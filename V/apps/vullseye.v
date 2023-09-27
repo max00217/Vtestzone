@@ -4,7 +4,7 @@ import os
 import crayon
 
 fn main() {
-	println(crayon.color("{green.bold.italic Vull's Eye v0.1}\n"))
+	println(crayon.color("{green.bold.italic Vull's Eye v0.1.1}\n"))
     mut userpoint := 0
     for _ in 0..5 {
         mut index := rand.intn(99) or { return }
@@ -19,7 +19,6 @@ fn main() {
         }
         line += ']'
         println(crayon.color("{red.bold ${line}}"))
-        println(index)
         userinput := os.input(crayon.color("{green.italic Guess the Number...: }")).int()
         if userinput == index {
             userpoint = userpoint + 100
