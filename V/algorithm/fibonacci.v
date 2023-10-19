@@ -1,17 +1,19 @@
+import math.big
+
 fn main() {
-	fibo(50)
+	fibo(1000)
 }
-// need to fine big integer module
+
 fn fibo(n u64) {
-	mut n1 := u64(0) 
-	mut n2 := u64(1) 
-	println(u64(n1))
-	println(u64(n2))
+	mut n1 := big.integer_from_int(0) 
+	mut n2 := big.integer_from_int(1) 
+	println(n1)
+	println(n2)
 
 	for _ in 2..n {
 		mut r := n1 + n2
 		n1 = n2
 		n2 = r
-		println(u64(r))
+		println(r)
 	}
 }
