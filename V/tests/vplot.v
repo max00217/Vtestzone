@@ -10,7 +10,7 @@ fn main() {
 	cmds << 'set key left box'
 	cmds << 'set samples 50'
 	cmds << 'set style data points'
-	cmds << 'plot [-10:10] sin(x),atan(x),cos(atan(x))'
+	cmds << 'plot [-10:10] sin(x),atan(x),cos(x)'//edit this field to change graph
 
 	mut p1 := vplot.new()
 
@@ -18,5 +18,4 @@ fn main() {
 	os.input('Press any keys to continue...')
 
 	p1.close()
-
 }

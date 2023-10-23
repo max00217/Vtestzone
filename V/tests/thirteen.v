@@ -1,7 +1,7 @@
 fn main() {
 	for i in 0..100000 {
 		isthirteen(i)
-		etothirteen(i)
+		go etothirteen(i)
 	}
 }
 

@@ -1,21 +1,19 @@
+import math.big
+
 fn main() {
-	fibo(25)
+	fibo(1000)
 }
 
-fn fibo(n i64) {
-	mut r := 0
-	mut n1 := 0
-	mut n2 := 1
+fn fibo(n u64) {
+	mut n1 := big.integer_from_int(0) 
+	mut n2 := big.integer_from_int(1) 
+	println(n1)
+	println(n2)
 
-	if n <= 1 {
-		println(n)
-	} else {
-		for _ in 0..n {
-			r = n1 + n2
-			n1 = n2
-			n2 = r
-			println(r)
-		}
-		// println(r)
+	for _ in 2..n {
+		mut r := n1 + n2
+		n1 = n2
+		n2 = r
+		println(r)
 	}
 }
