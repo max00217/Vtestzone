@@ -58,6 +58,8 @@ pub fn (mut app App) page_next() vweb.Result {
 		Object{
 			title: "Youtube"
 			subtext: "V로 웹 사이트 만들 건데 이거 한국어 지원합니까"
+			gotonext : "/next"
+
 		}
 	]
 
