@@ -48,4 +48,4 @@ fn v_xnor(q int, w int) int {
 
 fn v_buf(q int) int {
     return q
-}
+}''
