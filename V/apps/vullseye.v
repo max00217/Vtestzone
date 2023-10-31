@@ -30,7 +30,6 @@ fn main() {
             } else if math.abs(userinput - index) < 10 {
                 userpoint = userpoint + 90
                 println(crayon.color("{green.bold \n+ 90pts}"))
-
             } else if math.abs(userinput - index) < 15 {
                 userpoint = userpoint + 80
                 println(crayon.color("{blue.bold \n+ 80pts}"))
