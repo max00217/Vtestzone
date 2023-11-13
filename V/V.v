@@ -1,6 +1,6 @@
 fn main() {
-    num_rows := 10
-    mut triangle := [][]int{len:num_rows, init:[]int{len: num_rows}}
+  num_rows := 10
+  mut triangle := [][]int{len:num_rows, init:[]int{len: num_rows}}
 
     for i in 0..num_rows {
         mut row := []int{len:i+1, init:0}
