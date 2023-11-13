@@ -13,6 +13,12 @@ fn main() {
     }
 
     for row in triangle {
-        println(row)
+        for _ in 0..(num_rows - row.len) {
+            print(" ")
+        }
+        for val in row {
+            print("$val ")
+        }
+        println("")
     }
 }
