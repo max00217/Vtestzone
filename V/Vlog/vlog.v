@@ -20,6 +20,6 @@ fn (mut app App) time() vweb.Result {
 ['/index']
 pub fn (mut app App) index() vweb.Result {
 	message := '기함수'
-	msg2 := "근하하하하"
+	msg2 := "우함수"
 	return $vweb.html()
 }
