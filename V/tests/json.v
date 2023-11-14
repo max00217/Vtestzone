@@ -10,7 +10,7 @@ mut:
 }
 
 fn main() {
-    s := os.fileno("V/tests/v.json")
+    s := os.fileno("v.json")
     // '[
     //     {"name":"Frodo", "age":25, "gender": "male"}, 
     //     {"name":"Bobby", "age":10, "gender": "male"},
