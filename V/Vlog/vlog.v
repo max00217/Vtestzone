@@ -17,9 +17,16 @@ fn (mut app App) time() vweb.Result {
 	return app.text(time.now().format())
 }
 
-['/index']
+["/index"]
 pub fn (mut app App) index() vweb.Result {
-	message := '기함수'
-	msg2 := "우함수"
+	message := "Vweb 메인 페이지"
+	msg2 := "이제 DB를 넣어야 하는"
+	return $vweb.html()
+}
+
+["/main"]
+pub fn (mut app App) main() vweb.Result {
+	msg1 := "Vweb 테스트"
+	msg2 := "다른 페이지로 넘어가는 법"
 	return $vweb.html()
 }
