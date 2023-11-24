@@ -2,6 +2,7 @@ import rand
 import arrays
 
 fn main() {
+	mut num := 0
 	mut arr := [
 		rand.int_in_range(1, 10)!, 
 		rand.int_in_range(1, 10)!, 
@@ -11,7 +12,7 @@ fn main() {
 		rand.int_in_range(1, 10)!, 
 		rand.int_in_range(1, 10)!, 
 		rand.int_in_range(1, 10)!, 
-		rand.int_in_range(1, 10)!,
+		rand.int_in_range(1, 10)!
 	]
 	println(arr)
 	for i in 0..arr.len - 1 { 
@@ -22,6 +23,7 @@ fn main() {
 			arr[q] , arr[i] = arr[i], arr[q]
 			println("Sorting...:${arr}")
 		}
+		num += 1
 	}
-	println("\nSort Result: ${arr}")
+	println("\nSort Result: ${arr}, ${num}")
 }
