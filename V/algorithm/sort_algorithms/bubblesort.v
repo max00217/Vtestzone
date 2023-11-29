@@ -2,15 +2,19 @@ import rand
 
 fn main() {
 	mut arr := [
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!, 
-		rand.i64_in_range(1, 10)!,
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!,
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!,
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!,
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!,
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!,
+    rand.int_in_range(1, 20)!, 
+    rand.int_in_range(1, 20)!,
 	]
 	println(arr)
 	for i in 1..arr.len - 1 { 
