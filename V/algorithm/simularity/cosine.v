@@ -21,7 +21,7 @@ fn cosine_similarity(v1 []int, v2 []int) f64 {
 }
 
 fn main() {
-  v1 := [1, 2, 3]
-  v2 := [4, 5, 6]
+  v1 := [1,1,0,1,1,2,1,0,1,1]
+  v2 := [0,0,0,0,0,0,0,0,1,0]
   println(cosine_similarity(v1, v2))
 }
