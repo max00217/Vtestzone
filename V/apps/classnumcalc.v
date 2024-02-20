@@ -7,16 +7,16 @@ mut counter := 0
 mut cb := clipboard.new()
 mut ft := ""
 
-fstendclass := os.input("1학년 끝 반: ").str()
-fstendnum := os.input("1학년 끝 번호: ").str()
+fstendclass := os.input("End of 1st Grade class: ").str()
+fstendnum := os.input("End of 1st Grade number: ").str()
 
-scdendclass := os.input("2학년 끝 반: ").str()
-scdendnum := os.input("2학년 끝 번호: ").str()
+scdendclass := os.input("End of 2nd Grade class: ").str()
+scdendnum := os.input("End of 2nd Grade number: ").str()
 
-trdendclass := os.input("3학년 끝 반: ").str()
-trdendnum := os.input("3학년 끝 번호: ").str()
+trdendclass := os.input("End of 3rd Grade class: ").str()
+trdendnum := os.input("End of 3rd Grade number:  ").str()
 
-numdiffrange := os.input("1, 2학년간 번호 오차 범위: ").int()
+numdiffrange := os.input("Number error range between 1st and 2nd grade: ").int()
 
 fnum := ("1"+fstendclass+fstendnum).int()
 snum := ("2"+scdendclass+scdendnum).int()
@@ -39,6 +39,4 @@ for i in 10101..fnum {
 cb.copy(ft)
 println("copied!")
 
-for true {
-	
-}
+for true {}
