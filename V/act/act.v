@@ -1,4 +1,5 @@
 import ascii_img
+import os
 
 fn main() {
 	img := ascii_img.from_file("logo/actlogo.jpg",
@@ -9,4 +10,5 @@ fn main() {
 	) or {err.msg()}
 
 	println(img)
+	mut s := os.input("종료하려면 아무 키나 입력...")
 }
