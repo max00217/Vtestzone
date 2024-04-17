@@ -1,9 +1,11 @@
 fn main() {
-	for i := 1; i <= 9*9; i++ {
-		dan := (i - 1) / 9 + 1
-		num := (i - 1) % 9 + 1
+	fnum := 9
+	lnum := 9
+	for i := 1; i <= lnum*fnum; i++ {
+		dan := (i - 1) / lnum + 1
+		num := (i - 1) % lnum + 1
 		println('${dan} x ${num} = ${dan * num}')
-		if num == 9 {
+		if num == lnum {
 			println('')
 		}
 	}
