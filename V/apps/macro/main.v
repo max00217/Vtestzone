@@ -1,7 +1,7 @@
 import ttytm.webview
 
 const html = "<!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 	<head>
 		<style>
 			body {
@@ -52,33 +52,41 @@ const html = "<!DOCTYPE html>
 </html>"
 
 fn my_v_func(e &webview.Event) string {
-	println("function checkBanners(regions, districts, phases) {
-  var rows = document.querySelectorAll('tbody tr');
+	println("//
+	function checkAllBannersExcept(region, houseNumbers, phases) {
+		var rows = document.querySelectorAll('tbody tr');
 
-  regions.forEach((region, index) => {
-    var district = districts[index];
-    var phase = phases[index];
+		rows.forEach(row => {
+			var regionCell = row.querySelector('td:first-child');
+			var houseNumberCell = row.querySelector('td.left strong');
+			
+			if (regionCell && regionCell.innerText.includes(region)) {
+				houseNumbers.forEach((houseNumber, index) => {
+					var phase = phases[index];
+					var phaseCell = row.querySelector(`td[data-name='\${phase} :']`);
 
-    rows.forEach(row => {
-      var regionCell = row.querySelector('td:first-child');
-      var districtCell = regionCell ? regionCell.querySelector('p.sub-text') : null;
-      var phaseCell = row.querySelector(`td[data-name='\${phase} :']`);
+					if (houseNumberCell && houseNumberCell.innerText.includes(houseNumber)) {
+						var checkbox = phaseCell ? phaseCell.querySelector('input[type=\'checkbox\']') : null;
+						if (checkbox && !checkbox.classList.contains('chk_dis')) {
+							checkbox.checked = false;
+						}
+				}
+				});
+			}
+		});
+		document.querySelectorAll('input[type=\'checkbox\']:not(.chk_dis)').forEach(checkbox => {
+			if (!checkbox.checked) {
+				checkbox.checked = true;
+			}
+		});
+	}
 
-      if (regionCell && regionCell.innerText.includes(region) && districtCell && districtCell.innerText.includes(district)) {
-        var checkbox = phaseCell ? phaseCell.querySelector('input[type='checkbox']:not(.chk_dis)') : null;
-        if (checkbox) {
-          checkbox.checked = true;
-        }
-      }
-    });
-  });
-}
+	var region = '대덕구';
+	var houseNumbers = ['501', '502-1', '506'];
+	var phases = ['3차', '4차', '1차'];
 
-var regions = ['대덕구', '대덕구'];
-var districts = ['418', '502-1'];
-var phases = ['3차', '4차'];
+	checkAllBannersExcept(region, houseNumbers, phases);")
 
-checkBanners(regions, districts, phases);")
 	e.eval("console.log('Hello from V from JS!');")
 	str_arg := e.get_arg[string](0) or { '' } // Get string arg at index `0`
 	return str_arg + ' Hello back from V!'
