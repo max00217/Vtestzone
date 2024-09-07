@@ -3,7 +3,7 @@ import os
 
 fn main() {   
     // Replace with your Discord webhook URL
-    webhook_url := "webhook sample"
+		webhook_url := os.input("enter your webhook link: ")
 
     // Create a message with the content you want to send
 	for true {
