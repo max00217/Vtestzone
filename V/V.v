@@ -32,7 +32,7 @@ fn main() {
   // 상단 주소 바 생성
   app.address = ui.textbox(ui.TextBoxParams{
     width: 600
-    text: app.path
+    text: &app.path
     on_enter: fn [mut app] (textbox &ui.TextBox) {
       new_path := textbox.text
       if os.is_dir(new_path) {
@@ -75,18 +75,19 @@ fn main() {
   app.list = ui.listbox(ui.ListBoxParams{
     width: 780
     height: 500
-    on_click: fn [mut app] (lb &ui.ListBox) {
-      if event.clicks == 2 { 
-        if lb.selected_idx >= 0 && lb.selected_idx < app.files.len {
-          selected := app.files[lb.selected_idx]
-          selected_path := os.join_path(app.path, selected)
-          app.status.set_text(selected_path)
+    scrollview: true  // ScrollView 활성화
+    text_size: 14.0   // 텍스트 크기 명시적 설정
+    theme: 'default'  // 테마 명시적 설정
+    on_change: fn [mut app] (lb &ui.ListBox) {
+      if lb.selection >= 0 && lb.selection < app.files.len {
+        selected := app.files[lb.selection]
+        selected_path := os.join_path(app.path, selected)
+        app.status.set_text(selected_path)
 
-          if os.is_dir(selected_path) {
-            app.change_directory(selected_path)
-          } else {
-            app.open_file(selected_path)
-          }
+        if os.is_dir(selected_path) {
+          app.change_directory(selected_path)
+        } else {
+          app.open_file(selected_path)
         }
       }
     }
@@ -107,7 +108,7 @@ fn main() {
   })
   
   // 메인 윈도우에 레이아웃 추가
-  app.window.child(main_layout)
+  app.window.root_layout = main_layout
   
   // 초기 파일 목록 표시
   app.refresh_files()
@@ -150,7 +151,25 @@ fn (mut app App) refresh_files() {
   files.sort()
   app.files = dirs
   app.files << files
-  app.list.init_items // set_items 사용
+  
+  // 안전하게 리스트 초기화
+  app.list.items.clear()  // 기존 항목 모두 제거
+  
+  // 빈 리스트로 초기화
+  if app.files.len == 0 {
+    app.status.set_text('항목이 없습니다')
+    return
+  }
+  
+  // 각 파일에 대해 append_item 메소드 사용
+  // 더 안전한 방법으로 항목 추가
+  for i, file in app.files {
+    // 문자열 ID 생성
+    id := i.str()
+    // 안전하게 항목 추가
+    app.list.append_item(id, file, 0)
+  }
+  
   app.status.set_text('${app.files.len}개 항목 표시됨')
 }
 
